@@ -1,0 +1,23 @@
+name: Public action consumer smoke
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  use-public-tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve published action ref and scan fixture project
+        id: duoready
+        uses: ryuamarines/duoready-action@v1
+        with:
+          path: test/fixtures
+          output: duoready-report.md
+          fail-on-high: 'false'
+      - name: Verify consumer-facing result
+        run: |
+          test -f duoready-report.md
+          test "${{ steps.duoready.outputs.findings }}" = "3"
