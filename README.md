@@ -53,4 +53,4 @@ Swift text is inspected without type resolution, compiler flags, ObjC/storyboard
 
 Requires Node.js 20 or newer. Run `npm run check && npm test`. The package has no third-party runtime dependencies.
 
-This standalone action is extracted from the DuoReady candidate in AI Factory. The browser demo is hosted at [ryuamarines Tools](https://ryuamarines-tools.vercel.app/trends/iphone-duo/duoready/); hosting is not evidence of external adoption.
+This standalone action is extracted from the DuoReady candidate in AI Factory.
